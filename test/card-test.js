@@ -19,5 +19,17 @@ describe('card', function() {
 });
 
 describe('guess', function() {
-  it('should ')
+  it('should evaluate correct answer', () => {
+    const card = createCard("2", "What is a comma-separated list of related values?", ["array", "object", "function"], "array")
+    const userAnswer = "array"
+    let checkedAnswer = evaluateGuess(userAnswer, card.correctAnswer )
+    expect(checkedAnswer).to.equal('Correct!')
+  })
+
+  it('should evaluate incorrect answer', () => {
+    const card = createCard("2", "What is a comma-separated list of related values?", ["array", "object", "function"], "array")
+    const userAnswer = "object"
+    let checkedAnswer = evaluateGuess(userAnswer, card.correctAnswer)
+    expect(checkedAnswer).to.equal('Incorrect!')
+  })
 })
