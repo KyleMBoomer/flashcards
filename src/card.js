@@ -6,4 +6,4 @@ function createCard(id, question, answers, correctAnswer) {
 
 
 
-module.exports = {createCard}
+module.exports = {createCard, evaluateGuess}
