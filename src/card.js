@@ -11,5 +11,9 @@ if (guess === correctAnswer) {
 return "Incorrect!"
 }
 
+function createDeck(cards) {
+    let deck = cards
+return deck
+}
 
-module.exports = {createCard, evaluateGuess}
+module.exports = {createCard, evaluateGuess, createDeck}
