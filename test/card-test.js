@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, createRound } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, createRound, takeTurn } = require('../src/card');
 
 describe('card', function () {
   it('should be a function', function () {
@@ -44,10 +44,13 @@ describe('deck', function () {
 })
 
 describe('round', function () {
-  let card1 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method")
-  let card2 = createCard(4, "What type of prototype method does not modify the existing array but returns a particular representation of the array?", ["mutator method", "accessor method", "iteration method"], "accessor method")
-  let card3 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array")
-  let deck = createDeck([card1, card2, card3])
+  let card1, card2, card3, deck
+  beforeEach(function () {
+    card1 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method")
+    card2 = createCard(4, "What type of prototype method does not modify the existing array but returns a particular representation of the array?", ["mutator method", "accessor method", "iteration method"], "accessor method")
+    card3 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array")
+    deck = createDeck([card1, card2, card3])
+  })
 
   it('should create a round object with default properties for turns and incorrectGuesses', function () {
     const round = createRound(deck)
@@ -55,5 +58,9 @@ describe('round', function () {
     expect(round.currentCard).to.equal(card1)
     expect(round.turns).to.equal(0)
     expect(round.incorrectGuesses.length).to.equal(0)
+  })
+
+  it('should be able to take a turn', () => {
+    
   })
 })

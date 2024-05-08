@@ -16,12 +16,21 @@ function createDeck(cards) {
     return deck
 }
 
+// getRandomCard()
+
 function createRound(deck, turns = 0, incorrectGuesses = []) {
     return {
         deck: deck,
         currentCard: deck[0],
         turns: turns,
-        incorrectGuesses: incorrectGuesses
+        incorrectGuesses: incorrectGuesses,
+        takeTurn: (guess) => {
+            this.currentCard = this.deck[this.turns]
+            evaluateGuess(guess, this.deck[this.turns].correctAnswer)
+            this.turns++
+        }
     }
 }
-module.exports = { createCard, evaluateGuess, createDeck, createRound }
+
+
+module.exports = { createCard, evaluateGuess, createDeck, createRound, takeTurn }
