@@ -84,7 +84,7 @@ describe('round', function () {
 
   it('should provide appropriate feedback', () => {
     const round = createRound(deck) 
-    
+    expect(round.takeTurn('correctAnswer'), "Correct!")
+    expect(round.takeTurn('incorrectGuess'), "Incorrect!")
   })
-
 })
