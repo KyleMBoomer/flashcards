@@ -24,13 +24,20 @@ function createRound(deck, turns = 0, incorrectGuesses = []) {
         currentCard: deck[0],
         turns: turns,
         incorrectGuesses: incorrectGuesses,
-        takeTurn: (guess) => {
+        takeTurn: function(guess) {
             this.currentCard = this.deck[this.turns]
-            evaluateGuess(guess, this.deck[this.turns].correctAnswer)
+            const feedback = evaluateGuess(guess, this.deck[this.turns].correctAnswer)
+            if(feedback === 'Incorrect!') {
+                this.incorrectGuesses.push(this.currentCard.id)
+            }
             this.turns++
+            if (this.turns === 10) {
+                calculatePercentCorrect() 
+            }
+            return feedback
         }
     }
 }
 
 
-module.exports = { createCard, evaluateGuess, createDeck, createRound, takeTurn }
+module.exports = { createCard, evaluateGuess, createDeck, createRound }
