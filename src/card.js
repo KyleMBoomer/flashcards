@@ -32,12 +32,20 @@ function createRound(deck, turns = 0, incorrectGuesses = []) {
             }
             this.turns++
             if (this.turns === 10) {
-                calculatePercentCorrect() 
+                calculateScore(this) 
             }
             return feedback
         }
     }
 }
 
+function calculateScore(round) {
+    console.log('round', round)
+let correctGuesses = round.turns - round.incorrectGuesses.length
+let score = `${(correctGuesses/round.turns) * 100}%`
+console.log('score', score)
+return `Game over! You scored ${score}. Play again?`
+}
 
-module.exports = { createCard, evaluateGuess, createDeck, createRound }
+
+module.exports = { createCard, evaluateGuess, createDeck, createRound, calculateScore }
