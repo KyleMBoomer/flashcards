@@ -23,7 +23,6 @@ function takeTurn(guess, round) {
 }
 function calculateScore(round) {
     let score = ((round.turns - round.incorrectGuesses.length) / round.turns) * 100
-    console.log(`Current Score: ${score}`)
     return score   
 }
 function endRound(round) {
