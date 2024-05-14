@@ -8,6 +8,7 @@ receive a score at the end of the round. Test your knowledge of programming!
 - Easy to play. Simply open your terminal and plug away at the questions to the end of the round.
 - User-interactive answer options for each question. 
 - Score returned to you at the end of the round to keep track of your progress.
+- Technologies used: JavaScript, Mocha, and Chai
 
 ## How To Play
 ### Installation
